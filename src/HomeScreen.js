@@ -89,6 +89,15 @@ export default createStackNavigator(
     Details: DetailsScreen
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold'
+      }
+    }
   }
 );
