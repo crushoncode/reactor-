@@ -4,7 +4,14 @@ import { createStackNavigator } from 'react-navigation';
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Home'
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#f4511e'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold'
+    }
   };
   render() {
     return (
@@ -52,6 +59,15 @@ class DetailsScreen extends Component {
             this.props.navigation.push('Details', {
               itemId: Math.floor(Math.random() * 100)
             })
+          }
+        />
+
+        {/* It's often necessary to update the navigationOptions configuration for the active screen from the mounted screen component itself. */}
+
+        <Button
+          title="Update the title"
+          onPress={() =>
+            this.props.navigation.setParams({ otherParam: 'Updated!' })
           }
         />
         <Button
