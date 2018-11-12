@@ -29,6 +29,8 @@ class HomeScreen extends Component {
 
 // Read the params in your screen component: this.props.navigation.getParam(paramName, defaultValue).
 
+// In order to use params in the title, we need to make navigationOptions a function that returns a configuration object.
+
 class DetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -51,6 +53,14 @@ class DetailsScreen extends Component {
               itemId: Math.floor(Math.random() * 100)
             })
           }
+        />
+        <Button
+          title="Go to Home"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
         />
       </View>
     );
