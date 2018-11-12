@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+
+class LogoTitle extends Component {
+  render() {
+    return (
+      <Image
+        source={require('../assets/images/spiro.png')}
+        style={{ width: 30, height: 30 }}
+      />
+    );
+  }
+}
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Home',
+    headerTitle: <LogoTitle />,
     headerStyle: {
       backgroundColor: '#f4511e'
     },
@@ -57,19 +68,19 @@ class DetailsScreen extends Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Detail Screen</Text>
-        <Text>itemId: {JSON.stringify(otherParam)}</Text>
+        <Text>Details Screen</Text>
+        <Text>itemId: {JSON.stringify(itemId)}</Text>
+        <Text>otherParam: {JSON.stringify(otherParam)}</Text>
         <Button
-          title="Go to Details...again"
+          title="Go to Details... again"
           onPress={() =>
             this.props.navigation.push('Details', {
               itemId: Math.floor(Math.random() * 100)
             })
           }
         />
-
-        {/* It's often necessary to update the navigationOptions configuration for the active screen from the mounted screen component itself. */}
-
+        // It's often necessary to update the navigationOptions configuration
+        for the active screen from the mounted screen component itself.
         <Button
           title="Update the title"
           onPress={() =>
