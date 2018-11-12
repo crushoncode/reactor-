@@ -39,9 +39,15 @@ class HomeScreen extends Component {
 // In order to use params in the title, we need to make navigationOptions a function that returns a configuration object.
 
 class DetailsScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
     return {
-      title: navigation.getParam('otherParam', 'A nested Details Screen')
+      title: params ? params.otherParam : 'A nested Details Screen',
+      //   title: navigation.getParam('otherParam', 'A nested Details Screen')
+      headerStyle: {
+        backgroundColor: navigationOptions.headerTintColor
+      },
+      headerTintColor: navigationOptions.headerStyle.backgroundColor
     };
   };
   render() {
