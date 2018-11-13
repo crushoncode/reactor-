@@ -41,10 +41,7 @@ export default class HomeScreen extends Component {
         <Button
           title="Go to Details"
           onPress={() => {
-            this.props.navigation.navigate('Details', {
-              itemId: 86,
-              otherParam: 'First Details'
-            });
+            this.props.navigation.navigate('Details');
           }}
         />
       </View>

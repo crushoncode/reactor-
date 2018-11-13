@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import HomeScreen from './src/HomeScreen';
 import DetailsScreen from './src/DetailsScreen';
 import ModalScreen from './src/ModalScreen';
-import { StackNavigator } from 'react-navigation';
+import TabHomeScreen from './src/TabHomeScreen';
+import TabSettingsScreen from './src/TabSettingsScreen';
+import TabDetailsScreen from './src/TabDetailsScreen';
+import {
+  createBottomTabNavigator,
+  createStackNavigator
+} from 'react-navigation';
 
-const MainStack = StackNavigator(
+const MainStack = createStackNavigator(
   {
     Home: HomeScreen,
     Details: DetailsScreen
@@ -23,9 +30,25 @@ const MainStack = StackNavigator(
   }
 );
 
-const RootStack = StackNavigator(
+const HomeStack = createStackNavigator({
+  TabHome: TabHomeScreen,
+  TabDetails: TabDetailsScreen
+});
+
+const SettingsStack = createStackNavigator({
+  TabSettings: TabSettingsScreen,
+  TabDetails: TabDetailsScreen
+});
+
+const TabStack = createBottomTabNavigator({
+  TabHome: HomeStack,
+  TabSettings: SettingsStack
+});
+
+const RootStack = createStackNavigator(
   {
     Main: MainStack,
+    Tab: TabStack,
     MyModal: ModalScreen
   },
   { mode: 'modal', headerMode: 'none' }

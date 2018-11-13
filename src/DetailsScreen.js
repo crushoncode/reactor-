@@ -38,8 +38,9 @@ export default class DetailsScreen extends Component {
             })
           }
         />
-        // It's often necessary to update the navigationOptions configuration
-        for the active screen from the mounted screen component itself.
+        {/* It's often necessary to update the navigationOptions configuration
+        for the active screen from the mounted screen component itself. */}
+        <Button onPress={() => navigation.navigate('Tab')} title="YayTabs!" />
         <Button
           title="Update the title"
           onPress={() =>
