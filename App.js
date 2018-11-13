@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Image } from 'react-native';
+import React from 'react';
 import HomeScreen from './src/HomeScreen';
 import DetailsScreen from './src/DetailsScreen';
 import ModalScreen from './src/ModalScreen';
@@ -54,8 +53,6 @@ const RootStack = createStackNavigator(
   { mode: 'modal', headerMode: 'none' }
 );
 
-export default class App extends Component {
-  render() {
-    return <RootStack />;
-  }
-}
+export default (App = () => {
+  return <RootStack />;
+});
